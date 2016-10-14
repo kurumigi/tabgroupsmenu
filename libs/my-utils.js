@@ -229,7 +229,7 @@ function createGroupFuncs(window) {
             srcGroup.getChildren().forEach(function(tabitem) {
                 GroupItems.moveTabToGroupItem(tabitem.tab, existingGroup.id);
             });
-            srcGroup.destroy();
+            srcGroup.close({immediately: true});
             srcGroup = existingGroup;
         } else {
             srcGroup.setTitle(newName);
@@ -247,7 +247,7 @@ function createGroupFuncs(window) {
     };
 
     GU.closeGroup = function GU_closeGroup(group) {
-        group.destroy({immediately: true});
+        group.tryToClose({immediately: true});
     };
 
     // Extract display name without prefix
